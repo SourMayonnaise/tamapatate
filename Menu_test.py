@@ -17,24 +17,31 @@ blevel = 1 # last menu level
 
 def level1():
     #main menu
+    print("Button was pushed!1")
 
 def level2():
     #sub menu
+    print("Button was pushed!2")
 
 def level3():
     #sub menu
+    print("Button was pushed!3")
 
 def level4():
     #sub menu
+    print("Button was pushed!4")
 
 def level5():
     #sub menu
+    print("Button was pushed!5")
 
 def level6():
     #sub menu
+    print("Button was pushed!6")
 
 def level7():
     #sub menu
+    print("Button was pushed!7")
 
 def option1(channel):
     global mlevel, update, blevel
