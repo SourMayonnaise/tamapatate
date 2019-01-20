@@ -6,6 +6,7 @@ mlevel = 0 #main level
 
 
 def button1_callback(channel):
+    global mlevel
     print("Button 1 was pushed!")
     if mlevel<=10:
         mlevel+=1
@@ -13,6 +14,7 @@ def button1_callback(channel):
         mlevel=0
 
 def button2_callback(channel):
+    global mlevel
     print("Button 2 was pushed!")
     if mlevel==1:
         print("menu1")
@@ -22,6 +24,7 @@ def button2_callback(channel):
         print("menu3")
 
 def button3_callback(channel):
+    global mlevel
     print("Button 3 was pushed!")
     mlevel=0
 
