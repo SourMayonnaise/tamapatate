@@ -2,28 +2,7 @@ import time,random
 import RPi.GPIO as GPIO
 
 mlevel = 0 #main level
-tamapatate = Tamagotchi("patate")
 
-def button1_callback(channel):
-    global mlevel
-    if mlevel<=10:
-        mlevel+=1
-    else:
-        mlevel=0
-
-def button2_callback(channel):
-    global mlevel, tamapatate
-    if mlevel==1:
-        print("menu1")
-    elif mlevel==2:
-        print("menu2")
-    elif mlevel==3:
-        print("clean")
-        tamapatate.clean()
-
-def button3_callback(channel):
-    global mlevel
-    mlevel=0
 
 class Tamagotchi:
     def __init__(self,name):
@@ -47,6 +26,30 @@ class Tamagotchi:
     def snack(self):
         self.joy+=2
         self.weight+=5
+
+
+tamapatate = Tamagotchi("patate")
+
+def button1_callback(channel):
+    global mlevel
+    if mlevel<=10:
+        mlevel+=1
+    else:
+        mlevel=0
+
+def button2_callback(channel):
+    global mlevel, tamapatate
+    if mlevel==1:
+        print("menu1")
+    elif mlevel==2:
+        print("menu2")
+    elif mlevel==3:
+        print("clean")
+        tamapatate.clean()
+
+def button3_callback(channel):
+    global mlevel
+    mlevel=0
 
 
 if __name__ == '__main__':
