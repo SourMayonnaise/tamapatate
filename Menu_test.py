@@ -74,7 +74,6 @@ while True:
         time.sleep (0.1)
 
 
-    lcd.clear()
 
     if mlevel == 1: level1()
     if mlevel == 2: level2()
