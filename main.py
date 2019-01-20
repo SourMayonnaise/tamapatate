@@ -2,28 +2,27 @@ import time,random
 import RPi.GPIO as GPIO
 
 mlevel = 0 #main level
+tamapatate = Tamagotchi("patate")
 
 def button1_callback(channel):
     global mlevel
-    print("Button 1 was pushed!")
     if mlevel<=10:
         mlevel+=1
     else:
         mlevel=0
 
 def button2_callback(channel):
-    global mlevel
-    print("Button 2 was pushed!")
+    global mlevel, tamapatate
     if mlevel==1:
         print("menu1")
     elif mlevel==2:
         print("menu2")
     elif mlevel==3:
-        print("menu3")
+        print("clean")
+        tamapatate.clean()
 
 def button3_callback(channel):
     global mlevel
-    print("Button 3 was pushed!")
     mlevel=0
 
 class Tamagotchi:
@@ -52,6 +51,8 @@ class Tamagotchi:
 
 if __name__ == '__main__':
 
+    global tamapatate
+
     GPIO.setwarnings(False) # Ignore warning for now
     GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
     GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
@@ -64,7 +65,6 @@ if __name__ == '__main__':
     GPIO.add_event_detect(16,GPIO.RISING,callback=button3_callback) # Setup event on pin 16 rising edge
 
 
-    tamapatate = Tamagotchi("patate")
     alert = False
     print('Press Ctrl+C to exit')
 
