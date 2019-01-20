@@ -2,14 +2,28 @@
 
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
+mlevel = 0 #main level
+
+
 def button1_callback(channel):
     print("Button 1 was pushed!")
+    if mlevel<=10:
+        mlevel+=1
+    else:
+        mlevel=0
 
 def button2_callback(channel):
     print("Button 2 was pushed!")
+    if mlevel==1:
+        print("menu1")
+    elif mlevel==2:
+        print("menu2")
+    elif mlevel==3:
+        print("menu3")
 
 def button3_callback(channel):
     print("Button 3 was pushed!")
+    mlevel=0
 
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
