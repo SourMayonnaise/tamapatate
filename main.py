@@ -121,7 +121,7 @@ if __name__ == '__main__':
                 tamapatate.joy-=1
             if(statPoo>=97) and (tamapatate.poo>0):
                 tamapatate.poo-=1
-
+                print('pop')
                 draw.text((2, 42), 'popo', font=font, fill=255)
 
 
