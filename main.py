@@ -7,6 +7,9 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
+A_pin = 10
+B_pin = 12
+C_pin = 16
 # Raspberry Pi pin configuration:
 RST = 24
 # Note the following are only used with SPI:
@@ -15,6 +18,11 @@ SPI_PORT = 0
 SPI_DEVICE = 0
 mlevel = 0 #main level
 
+GPIO.setwarnings(False) # Ignore warning for now
+GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
+GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
+GPIO.setup(B_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 12 to be an input pin and set initial value to be pulled low (off)
+GPIO.setup(C_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 16 to be an input pin and set initial value to be pulled low (off)
 
 class Tamagotchi:
     def __init__(self,name):
@@ -98,16 +106,10 @@ if __name__ == '__main__':
     # Load default font.
     font = ImageFont.load_default()
     #------------BUTTONS SETTING ---------------
-    GPIO.setwarnings(False) # Ignore warning for now
-    GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
-    GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
-    GPIO.add_event_detect(10,GPIO.RISING,callback=button1_callback) # Setup event on pin 10 rising edge
-
-    GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 12 to be an input pin and set initial value to be pulled low (off)
-    GPIO.add_event_detect(12,GPIO.RISING,callback=button2_callback) # Setup event on pin 12 rising edge
-
-    GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 16 to be an input pin and set initial value to be pulled low (off)
-    GPIO.add_event_detect(16,GPIO.RISING,callback=button3_callback) # Setup event on pin 16 rising edge
+    
+    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback) # Setup event on pin 10 rising edge
+    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=button2_callback) # Setup event on pin 12 rising edge
+    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=button3_callback) # Setup event on pin 16 rising edge
 
 
     alert = False
