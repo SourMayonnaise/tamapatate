@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
     # Draw a black filled box to clear the image.
     draw.rectangle((0,0,width,height), outline=0, fill=0)
-
+    font = ImageFont.load_default()
     tamapatate = Tamagotchi("patate")
 
     #------------BUTTONS SETTING ---------------
