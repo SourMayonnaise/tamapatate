@@ -103,8 +103,8 @@ if __name__ == '__main__':
 
     alert = False
     print('Press Ctrl+C to exit')
-    draw.text((x, top),    'Hello',  font=font, fill=255)
-    draw.text((x, top+20), 'tamapatate', font=font, fill=255)
+    draw.text((2, top),    'Hello',  font=font, fill=255)
+    draw.text((2, top+20), 'tamapatate', font=font, fill=255)
     # Display image.
     disp.image(image)
     disp.display()
