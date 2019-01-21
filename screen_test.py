@@ -52,7 +52,7 @@ x += shape_width+padding
 draw.rectangle((x, top, x+shape_width, bottom), outline=255, fill=0)
 x += shape_width+padding
 # Draw a triangle.
-draw.polygon([(x, bottom), (x+shape_width/2, top), (x+shape_width, bottom)], ou$
+draw.polygon([(x, bottom), (x+shape_width/2, top), (x+shape_width, bottom)], outline=255, fill=0)
 x += shape_width+padding
 # Draw an X.
 draw.line((x, bottom, x+shape_width, top), fill=255)
