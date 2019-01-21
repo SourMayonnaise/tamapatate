@@ -40,7 +40,6 @@ class Tamagotchi:
         self.weight+=5
 
 
-tamapatate = Tamagotchi("patate")
 
 def button1_callback(channel):
     global mlevel
@@ -66,7 +65,8 @@ def button3_callback(channel):
 
 if __name__ == '__main__':
 
-    global tamapatate
+
+    tamapatate = Tamagotchi("patate")
     #------------DISPLAY SETTING ---------------
     # 128x32 display with hardware I2C:
     disp = Adafruit_SSD1306.SSD1306_128_32(rst=RST)
