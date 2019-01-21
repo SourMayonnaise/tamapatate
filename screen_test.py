@@ -71,8 +71,7 @@ try:
         if GPIO.input(L_pin): # button is released
             draw.polygon([(0, 30), (18, 21), (18, 41)], outline=255, fill=0)  #left
         else: # button is pressed:
-            draw.polygon([(0, 30), (18, 21), (18, 41)], outline=255, fill=1)  #left filled
-
+            draw.text((2, top+20), 'World!', font=font, fill=255)
         if GPIO.input(R_pin): # button is released
             draw.polygon([(60, 30), (42, 21), (42, 41)], outline=255, fill=0) #right
         else: # button is pressed:
