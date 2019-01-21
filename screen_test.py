@@ -16,8 +16,8 @@ C_pin = 4
 U_pin = 17
 D_pin = 22
 
-A_pin = 5
-B_pin = 6
+A_pin = 10
+B_pin = 12
 
 
 GPIO.setmode(GPIO.BCM)
