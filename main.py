@@ -123,7 +123,8 @@ if __name__ == '__main__':
                 tamapatate.poo-=1
                 print('pop')
                 draw.text((2, 42), 'popo', font=font, fill=255)
-
+                disp.image(image)
+                disp.display()
 
             if((tamapatate.miam==0) or (tamapatate.joy==0) or (tamapatate.poo<2)) and alert==False:
                 alert=True
