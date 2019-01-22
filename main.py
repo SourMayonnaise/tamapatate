@@ -132,14 +132,18 @@ if __name__ == '__main__':
             #---Alert management---------
             if tamapatate.alert==True:
                 print("alert")
-                draw.text((2, 42), 'Alert', font=font, fill=255)
-                disp.image(image)
-                disp.display()
+                draw.text((2, 42), 'Alert', font=font, fill=255)    
             #---Display on screen at the end of the tik---
-
+            disp.image(image)
+            disp.display()
             time.sleep(0.2)
 
     except KeyboardInterrupt:
+        # Draw a black filled box to clear the image.
+        draw.rectangle((0,0,width,height), outline=0, fill=0)
+        disp.image(image)
+        disp.display()
+
         GPIO.cleanup()
         time.sleep(1)
         raise
