@@ -132,7 +132,7 @@ if __name__ == '__main__':
             #---Alert management---------
             if tamapatate.alert==True:
                 print("alert")
-                draw.text((20, 22), 'Alert', font=font, fill=255)
+                draw.text((2, 42), 'Alert', font=font, fill=255)
                 disp.image(image)
                 disp.display()
             #---Display on screen at the end of the tik---
