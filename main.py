@@ -9,9 +9,9 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-A_pin = 15
-B_pin = 18
-C_pin = 23
+A_pin = 26
+B_pin = 6
+C_pin = 5
 
 GPIO.setmode(GPIO.BCM) # Use physical pin numbering
 
