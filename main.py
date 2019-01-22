@@ -26,7 +26,8 @@ SPI_PORT = 0
 SPI_DEVICE = 0
 
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
-mlevel = 0
+
+mlevel = 0 #main level
 
 class Tamagotchi:
     def __init__(self,name):
@@ -42,7 +43,6 @@ class Tamagotchi:
 
     def clean(self):
         self.poo=2
-        prin("whoosh")
 
     def play(self):
         self.joy+=2
@@ -55,7 +55,6 @@ class Tamagotchi:
 
 def button1_callback(channel):
     global mlevel
-    print("button1")
     if mlevel<=10:
         mlevel+=1
     else:
