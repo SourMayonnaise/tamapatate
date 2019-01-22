@@ -139,7 +139,7 @@ if __name__ == '__main__':
 
             if validate == False:
                 draw.rectangle((0,0,width,height), outline=0, fill=0)
-                draw.text((10, 22), '(ʘᴥʘ)', font=font, fill=255)
+                draw.text((10, 22), '(>.<)', font=font, fill=255)
                 disp.image(image)
                 disp.display()
             #---State management of the vitual pet---
