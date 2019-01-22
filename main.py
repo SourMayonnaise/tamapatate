@@ -9,11 +9,11 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-A_pin = 10
-B_pin = 12
-C_pin = 16
+A_pin = 15
+B_pin = 18
+C_pin = 23
 
-GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
+GPIO.setmode(GPIO.BCM) # Use physical pin numbering
 
 GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 GPIO.setup(B_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
