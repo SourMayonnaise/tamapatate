@@ -29,30 +29,6 @@ disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
 mlevel = 0 #main level
 
-def button1_callback(channel):
-    global mlevel
-    print("Button 1 was pushed!")
-    if mlevel<=10:
-        mlevel+=1
-    else:
-        mlevel=0
-
-def button2_callback(channel):
-    global mlevel
-    print("Button 2 was pushed!")
-    if mlevel==1:
-        print("menu1")
-    elif mlevel==2:
-        print("menu2")
-    elif mlevel==3:
-        print("menu3")
-
-def button3_callback(channel):
-    global mlevel
-    print("Button 3 was pushed!")
-    mlevel=0
-
-
 class Tamagotchi:
     def __init__(self,name):
         self.name=name
@@ -77,6 +53,29 @@ class Tamagotchi:
         self.weight+=5
 
 
+
+def button1_callback(channel):
+    global mlevel
+    if mlevel<=10:
+        mlevel+=1
+    else:
+        mlevel=0
+
+def button2_callback(channel):
+    global mlevel, tamapatate
+    if mlevel==1:
+        print("menu1")
+    elif mlevel==2:
+        print("menu2")
+    elif mlevel==3:
+        print("clean")
+        tamapatate.clean()
+
+def button3_callback(channel):
+    global mlevel
+    mlevel=0
+
+
 if __name__ == '__main__':
     # Initialize library.
     disp.begin()
@@ -97,8 +96,8 @@ if __name__ == '__main__':
 
     #------------BUTTONS SETTING ---------------
 
-    GPIO.add_event_detect(10,GPIO.RISING,callback=button1_callback) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(12,GPIO.RISING,callback=button2_callback) # Setup event on pin 12 rising edge
+    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback) # Setup event on pin 10 rising edge
+    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=button2_callback) # Setup event on pin 12 rising edge
     GPIO.add_event_detect(C_pin,GPIO.RISING,callback=button3_callback) # Setup event on pin 16 rising edge
 
 
