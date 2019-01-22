@@ -55,9 +55,9 @@ class Tamagotchi:
 
     def button1_callback(channel,self):
         if self.mlevel<=10:
-            mlevel+=1
+            self.mlevel+=1
         else:
-            mlevel=0
+            self.mlevel=0
 
     def button2_callback(channel,self):
         if self.mlevel==1:
