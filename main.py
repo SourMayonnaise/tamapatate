@@ -112,6 +112,13 @@ if __name__ == '__main__':
             if validate==True:
                 if mlevel==1:
                     print("menu 1 : informations")
+                    draw.rectangle((0,0,width,height), outline=0, fill=0)
+                    draw.text((2, 2), 'HUNGRY', font=font, fill=255)
+                    draw.text((2, 22), str(tamapatate.miam), font=font, fill=255)
+                    draw.text((2, 42), 'HAPPY', font=font, fill=255)
+                    draw.text((2, 62), str(tamapatate.joy), font=font, fill=255)
+                    disp.image(image)
+                    disp.display()
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
