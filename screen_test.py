@@ -13,11 +13,6 @@ A_pin = 26
 B_pin = 6
 C_pin = 5
 
-GPIO.setmode(GPIO.BCM) # Use BCM pin numbering
-
-GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
-GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
-GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 
 # Raspberry Pi pin configuration:
 RST = 24
@@ -53,6 +48,11 @@ def button3_callback(channel):
     print("Button 3 was pushed!")
     mlevel=0
 
+GPIO.setmode(GPIO.BCM) # Use BCM pin numbering
+
+GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 
 
 GPIO.add_event_detect(26,GPIO.RISING,callback=button1_callback)
