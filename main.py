@@ -54,6 +54,7 @@ class Tamagotchi:
 
 
     def button1_callback(channel,self):
+        print("button1")
         if self.mlevel<=10:
             self.mlevel+=1
         else:
@@ -92,9 +93,9 @@ if __name__ == '__main__':
 
     #------------BUTTONS SETTING ---------------
 
-    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=tamapatate.button1_callback) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=tamapatate.button2_callback) # Setup event on pin 12 rising edge
-    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=tamapatate.button3_callback) # Setup event on pin 16 rising edge
+    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=tamapatate.button1_callback()) # Setup event on pin 10 rising edge
+    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=tamapatate.button2_callback()) # Setup event on pin 12 rising edge
+    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=tamapatate.button3_callback()) # Setup event on pin 16 rising edge
 
 
     alert = False
