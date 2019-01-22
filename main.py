@@ -127,6 +127,7 @@ if __name__ == '__main__':
                     draw.text((2, 62), str(tamapatate.joy), font=font, fill=255)
                     disp.image(image)
                     disp.display()
+                    time.sleep(4)
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
@@ -136,7 +137,7 @@ if __name__ == '__main__':
                 elif mlevel==4:
                     print("menu 4 : game")
                     tamapatate.play()
-
+                validate=False
             if validate == False:
                 draw.rectangle((0,0,width,height), outline=0, fill=0)
                 draw.text((10, 22), '(>.<)', font=font, fill=255)
