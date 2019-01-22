@@ -29,6 +29,30 @@ disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
 mlevel = 0 #main level
 
+def button1_callback(channel):
+    global mlevel
+    print("Button 1 was pushed!")
+    if mlevel<=10:
+        mlevel+=1
+    else:
+        mlevel=0
+
+def button2_callback(channel):
+    global mlevel
+    print("Button 2 was pushed!")
+    if mlevel==1:
+        print("menu1")
+    elif mlevel==2:
+        print("menu2")
+    elif mlevel==3:
+        print("menu3")
+
+def button3_callback(channel):
+    global mlevel
+    print("Button 3 was pushed!")
+    mlevel=0
+
+
 class Tamagotchi:
     def __init__(self,name):
         self.name=name
@@ -51,28 +75,6 @@ class Tamagotchi:
     def snack(self):
         self.joy+=2
         self.weight+=5
-
-
-def button1_callback(channel):
-    global mlevel
-    if mlevel<=10:
-        mlevel+=1
-    else:
-        mlevel=0
-
-def button2_callback(channel):
-    global mlevel, tamapatate
-    if mlevel==1:
-        print("menu1")
-    elif mlevel==2:
-        print("menu2")
-    elif mlevel==3:
-        print("clean")
-        tamapatate.clean()
-
-def button3_callback(channel):
-    global mlevel
-    mlevel=0
 
 
 if __name__ == '__main__':
