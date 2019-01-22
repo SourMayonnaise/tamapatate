@@ -122,7 +122,7 @@ if __name__ == '__main__':
                 elif mlevel==4:
                     print("menu 4 : game")
                     tamapatate.play()
-
+                validate==False
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
             statJoy=random.randint(0,100)
