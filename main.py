@@ -26,7 +26,7 @@ SPI_PORT = 0
 SPI_DEVICE = 0
 
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
-
+mlevel = 0
 
 class Tamagotchi:
     def __init__(self,name):
@@ -35,7 +35,6 @@ class Tamagotchi:
         self.joy=4
         self.poo=2
         self.weight=2
-        self.mlevel=0
 
     def manger(self):
         self.miam+=1
@@ -43,6 +42,7 @@ class Tamagotchi:
 
     def clean(self):
         self.poo=2
+        prin("whoosh")
 
     def play(self):
         self.joy+=2
@@ -53,24 +53,27 @@ class Tamagotchi:
         self.weight+=5
 
 
-    def button1_callback(channel,self):
-        print("button1")
-        if self.mlevel<=10:
-            self.mlevel+=1
-        else:
-            self.mlevel=0
+def button1_callback(channel):
+    global mlevel
+    print("button1")
+    if mlevel<=10:
+        mlevel+=1
+    else:
+        mlevel=0
 
-    def button2_callback(channel,self):
-        if self.mlevel==1:
-            print("menu1")
-        elif self.mlevel==2:
-            print("menu2")
-        elif self.mlevel==3:
-            print("clean")
-            self.clean()
+def button2_callback(channel):
+    global mlevel, tamapatate
+    if mlevel==1:
+        print("menu1")
+    elif mlevel==2:
+        print("menu2")
+    elif mlevel==3:
+        print("clean")
+        tamapatate.clean()
 
-    def button3_callback(channel,self):
-        self.mlevel=0
+def button3_callback(channel):
+    global mlevel
+    self.mlevel=0
 
 
 if __name__ == '__main__':
@@ -93,9 +96,9 @@ if __name__ == '__main__':
 
     #------------BUTTONS SETTING ---------------
 
-    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=tamapatate.button1_callback) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=tamapatate.button2_callback) # Setup event on pin 12 rising edge
-    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=tamapatate.button3_callback) # Setup event on pin 16 rising edge
+    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback) # Setup event on pin 10 rising edge
+    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=button2_callback) # Setup event on pin 12 rising edge
+    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=button3_callback) # Setup event on pin 16 rising edge
 
 
     alert = False
