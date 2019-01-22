@@ -111,7 +111,8 @@ if __name__ == '__main__':
             #--- Action management---
             if validate==True:
                 if mlevel==1:
-                    print("menu 1 : informations")
+                    print("menu 1 : informations")    
+                    validate==False
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
@@ -121,7 +122,6 @@ if __name__ == '__main__':
                 elif mlevel==4:
                     print("menu 4 : game")
                     tamapatate.play()
-            validate==False
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
             statJoy=random.randint(0,100)
