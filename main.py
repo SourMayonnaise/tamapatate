@@ -110,7 +110,6 @@ if __name__ == '__main__':
         while(True):
             #--- Action management---
             if validate==True:
-                draw.rectangle((0,0,width,height), outline=0, fill=0)
                 if mlevel==1:
                     print("menu 1 : informations")
                 elif mlevel==2:
@@ -122,7 +121,7 @@ if __name__ == '__main__':
                 elif mlevel==4:
                     print("menu 4 : game")
                     tamapatate.play()
-                validate==False
+            validate==False
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
             statJoy=random.randint(0,100)
