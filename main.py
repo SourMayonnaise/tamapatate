@@ -61,13 +61,14 @@ class Tamagotchi:
         self.joy=4
         self.poo=2
         self.weight=2
+        self.alert=False
 
     def manger(self):
         self.miam+=1
         self.weight+=1
 
     def clean(self):
-        self.poo=2
+        self.poo=0
 
     def play(self):
         self.joy+=2
@@ -97,9 +98,9 @@ if __name__ == '__main__':
 
     #------------BUTTONS SETTING ---------------
 
-    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback) # Setup event on pin 10 rising edge
-    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=button2_callback) # Setup event on pin 12 rising edge
-    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=button3_callback) # Setup event on pin 16 rising edge
+    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback)
+    GPIO.add_event_detect(B_pin,GPIO.RISING,callback=button2_callback)
+    GPIO.add_event_detect(C_pin,GPIO.RISING,callback=button3_callback)
 
 
     alert = False
@@ -111,27 +112,33 @@ if __name__ == '__main__':
     disp.display()
     try:
         while(True):
+            #---Clear the screen at the begining of the tik---
+            draw.rectangle((0,0,width,height), outline=0, fill=0)
 
+            #---State management of the vitual pet---
             statMiam=random.randint(0,100)
             statJoy=random.randint(0,100)
             statPoo=random.randint(0,100)
 
             if(statMiam>=98) and (tamapatate.miam>0):
                 tamapatate.miam-=1
+                if tamapatate.miam==0:
+                    tamapatate.alert=True
             if(statJoy>=98) and (tamapatate.joy>0):
                 tamapatate.joy-=1
+                if tamapatate.joy==0:
+                    tamapatate.alert=True
             if(statPoo>=97) and (tamapatate.poo>0):
                 tamapatate.poo-=1
-                print('pop')
-                draw.text((2, 42), 'popo', font=font, fill=255)
-                disp.image(image)
-                disp.display()
-
-            if((tamapatate.miam==0) or (tamapatate.joy==0) or (tamapatate.poo<2)) and alert==False:
-                alert=True
-                print('ALERT')
-
+                tamapatate.alert=True
+            #---Alert management---------
+            if tamapatate==True:
+                draw.text((20, 22), 'Alert', font=font, fill=255)
+            #---Display on screen at the end of the tik---
+            disp.image(image)
+            disp.display()
             time.sleep(0.2)
+
     except KeyboardInterrupt:
         GPIO.cleanup()
         time.sleep(1)
