@@ -29,7 +29,7 @@ SPI_DEVICE = 0
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
 mlevel = 0 #main level
-
+validate = False #enter menu
 
 def button1_callback(channel):
     global mlevel
@@ -40,26 +40,22 @@ def button1_callback(channel):
         mlevel=0
 
 def button2_callback(channel):
-    global mlevel
+    global mlevel, validate
     print("Button 2 was pushed!")
-    if mlevel==1:
-        print("menu1")
-    elif mlevel==2:
-        print("menu2")
-    elif mlevel==3:
-        print("menu3")
+    validate=True
 
 def button3_callback(channel):
     global mlevel
     print("Button 3 was pushed!")
     mlevel=0
+    validate = False
 
 class Tamagotchi:
     def __init__(self,name):
         self.name=name
         self.miam=4
         self.joy=4
-        self.poo=2
+        self.poo=1
         self.weight=2
         self.alert=False
 
@@ -68,7 +64,7 @@ class Tamagotchi:
         self.weight+=1
 
     def clean(self):
-        self.poo=0
+        self.poo=1
 
     def play(self):
         self.joy+=2
@@ -112,27 +108,41 @@ if __name__ == '__main__':
     disp.display()
     try:
         while(True):
+            #--- Action management---
+            if validate==True:
+                draw.rectangle((0,0,width,height), outline=0, fill=0)
+                if mlevel==1:
+                    print("menu 1 : informations")
+                elif mlevel==2:
+                    print("menu 2 : food")
+                    tamapatate.manger()
+                elif mlevel==3:
+                    print("menu 3 : clean")
+                    tamapatate.clean()
+                elif mlevel==4:
+                    print("menu 4 : game")
+                    tamapatate.play()
 
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
             statJoy=random.randint(0,100)
             statPoo=random.randint(0,100)
-
             if(statMiam>=98) and (tamapatate.miam>0):
                 tamapatate.miam-=1
-                if tamapatate.miam==0:
-                    tamapatate.alert=True
             if(statJoy>=98) and (tamapatate.joy>0):
                 tamapatate.joy-=1
-                if tamapatate.joy==0:
-                    tamapatate.alert=True
             if(statPoo>=99) and (tamapatate.poo>0):
                 tamapatate.poo-=1
-                tamapatate.alert=True
+
             #---Alert management---------
-            if tamapatate.alert==True:
+            if tamapatate.joy>0 and tamapatate.miam>0 and tamapatate.poo==1:
+                tamapatate.alert=False
+            else :
+                tamapatate.alert=True
                 print("alert")
-                draw.text((2, 42), 'Alert', font=font, fill=255)    
+                draw.text((2, 42), 'Alert', font=font, fill=255)
+
+
             #---Display on screen at the end of the tik---
             disp.image(image)
             disp.display()
