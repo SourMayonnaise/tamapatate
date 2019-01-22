@@ -112,8 +112,6 @@ if __name__ == '__main__':
     disp.display()
     try:
         while(True):
-            #---Clear the screen at the begining of the tik---
-            #draw.rectangle((0,0,width,height), outline=0, fill=0)
 
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
@@ -133,6 +131,7 @@ if __name__ == '__main__':
                 tamapatate.alert=True
             #---Alert management---------
             if tamapatate==True:
+                print("alert")
                 draw.text((20, 22), 'Alert', font=font, fill=255)
             #---Display on screen at the end of the tik---
             disp.image(image)
