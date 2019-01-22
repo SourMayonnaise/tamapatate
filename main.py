@@ -12,7 +12,7 @@ from PIL import ImageFont
 A_pin = 10
 B_pin = 12
 C_pin = 16
-GPIO.setwarnings(False) # Ignore warning for now
+
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 
 GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
