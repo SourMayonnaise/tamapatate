@@ -60,17 +60,25 @@ class Tamagotchi:
         self.alert=False
 
     def manger(self):
+        global validate
+        validate=False
         self.miam+=1
         self.weight+=1
 
     def clean(self):
+        global validate
+        validate=False
         self.poo=1
 
     def play(self):
+        global validate
+        validate=False
         self.joy+=2
         self.weight-=3
 
     def snack(self):
+        global validate
+        validate=False
         self.joy+=2
         self.weight+=5
 
@@ -128,7 +136,12 @@ if __name__ == '__main__':
                 elif mlevel==4:
                     print("menu 4 : game")
                     tamapatate.play()
-                validate=False
+
+            if validate == False:
+                draw.rectangle((0,0,width,height), outline=0, fill=0)
+                draw.text((10, 22), '(ʘᴥʘ)', font=font, fill=255)
+                disp.image(image)
+                disp.display()
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
             statJoy=random.randint(0,100)
