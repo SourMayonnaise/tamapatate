@@ -75,11 +75,11 @@ draw = ImageDraw.Draw(image)
 draw.rectangle((0,0,width,height), outline=0, fill=0)
 font = ImageFont.load_default()
 
-message = input("Press enter to quit\n\n") # Run until someone presses enter
-
 draw.text((2, 2),    'Hello',  font=font, fill=255)
 draw.text((2, 22), 'tamapatate', font=font, fill=255)
 # Display image.
 disp.image(image)
 disp.display()
+message = input("Press enter to quit\n\n") # Run until someone presses enter
+
 GPIO.cleanup() # Clean up
