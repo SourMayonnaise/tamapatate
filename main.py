@@ -126,16 +126,17 @@ if __name__ == '__main__':
                 tamapatate.joy-=1
                 if tamapatate.joy==0:
                     tamapatate.alert=True
-            if(statPoo>=97) and (tamapatate.poo>0):
+            if(statPoo>=99) and (tamapatate.poo>0):
                 tamapatate.poo-=1
                 tamapatate.alert=True
             #---Alert management---------
             if tamapatate.alert==True:
                 print("alert")
                 draw.text((20, 22), 'Alert', font=font, fill=255)
+                disp.image(image)
+                disp.display()
             #---Display on screen at the end of the tik---
-            disp.image(image)
-            disp.display()
+
             time.sleep(0.2)
 
     except KeyboardInterrupt:
