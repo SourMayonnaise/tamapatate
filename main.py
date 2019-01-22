@@ -13,11 +13,11 @@ A_pin = 26
 B_pin = 6
 C_pin = 5
 
-GPIO.setmode(GPIO.BCM) # Use physical pin numbering
+GPIO.setmode(GPIO.BCM) # Use BCM pin numbering
 
-GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
-GPIO.setup(B_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
-GPIO.setup(C_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
+GPIO.setup(A_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Input with pull-up
+GPIO.setup(B_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Input with pull-up
+GPIO.setup(C_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Input with pull-up
 
 # Raspberry Pi pin configuration:
 RST = 24
@@ -28,7 +28,6 @@ SPI_DEVICE = 0
 
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
-mlevel = 0 #main level
 mlevel = 0 #main level
 
 
