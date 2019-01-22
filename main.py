@@ -113,7 +113,7 @@ if __name__ == '__main__':
     try:
         while(True):
             #---Clear the screen at the begining of the tik---
-            draw.rectangle((0,0,width,height), outline=0, fill=0)
+            #draw.rectangle((0,0,width,height), outline=0, fill=0)
 
             #---State management of the vitual pet---
             statMiam=random.randint(0,100)
