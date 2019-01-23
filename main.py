@@ -49,6 +49,7 @@ def button3_callback(channel):
     print("Button 3 was pushed!")
     mlevel=0
     validate = False
+    back = True
 
 class Tamagotchi:
     def __init__(self,name):
@@ -119,17 +120,17 @@ if __name__ == '__main__':
             #--- Action management---
             if validate==True:
                 if mlevel==1:
-                    tic=0
-                    while tic<10 or validate==False:
-                        print("menu 1 : informations")
-                        draw.rectangle((0,0,width,height), outline=0, fill=0)
-                        draw.text((2, 2), 'HUNGRY', font=font, fill=255)
-                        draw.text((2, 15), str(tamapatate.miam), font=font, fill=255)
-                        draw.text((2, 28), 'HAPPY', font=font, fill=255)
-                        draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
-                        disp.image(image)
-                        disp.display()
-                        tic+=1
+                    print("menu 1 : informations")
+                    draw.rectangle((0,0,width,height), outline=0, fill=0)
+                    draw.text((2, 2), 'HUNGRY', font=font, fill=255)
+                    draw.text((2, 15), str(tamapatate.miam), font=font, fill=255)
+                    draw.text((2, 28), 'HAPPY', font=font, fill=255)
+                    draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
+                    disp.image(image)
+                    disp.display()
+                    validate=False
+                    while back != True:
+                        sleep(0.2)
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
@@ -161,7 +162,6 @@ if __name__ == '__main__':
                 tamapatate.alert=False
             else :
                 tamapatate.alert=True
-                print("alert")
                 draw.text((2, 42), 'Alert', font=font, fill=255)
 
 
