@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     #------------BUTTONS SETTING ---------------
 
-    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback)
+    GPIO.add_event_detect(A_pin,GPIO.RISING,callback=button1_callback, bouncetime=10)
     GPIO.add_event_detect(B_pin,GPIO.RISING,callback=button2_callback)
     GPIO.add_event_detect(C_pin,GPIO.RISING,callback=button3_callback)
 
@@ -119,7 +119,8 @@ if __name__ == '__main__':
             #--- Action management---
             if validate==True:
                 if mlevel==1:
-                    while validate==True:
+                    tic=0
+                    while tic<6:
                         print("menu 1 : informations")
                         draw.rectangle((0,0,width,height), outline=0, fill=0)
                         draw.text((2, 2), 'HUNGRY', font=font, fill=255)
@@ -128,6 +129,7 @@ if __name__ == '__main__':
                         draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
                         disp.image(image)
                         disp.display()
+                        tic+=1
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
