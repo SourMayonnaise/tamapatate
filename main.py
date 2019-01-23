@@ -131,7 +131,6 @@ if __name__ == '__main__':
                     disp.display()
                     while back == False:
                         time.sleep(0.2)
-                    validate=False
                     back == True
                 elif mlevel==2:
                     print("menu 2 : food")
