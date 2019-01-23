@@ -130,7 +130,7 @@ if __name__ == '__main__':
                     disp.display()
                     validate=False
                     while back != True:
-                        sleep(0.2)
+                        time.sleep(0.2)
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
