@@ -128,9 +128,10 @@ if __name__ == '__main__':
                     draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
                     disp.image(image)
                     disp.display()
-                    validate=False
                     while back != True:
                         time.sleep(0.2)
+
+                    validate=False
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
