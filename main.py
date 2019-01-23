@@ -38,11 +38,12 @@ def button1_callback(channel):
         mlevel+=1
     else:
         mlevel=0
-
+    back = False
 def button2_callback(channel):
     global mlevel, validate
     print("Button 2 was pushed!")
     validate=True
+    back = False
 
 def button3_callback(channel):
     global mlevel, validate, back
@@ -128,10 +129,10 @@ if __name__ == '__main__':
                     draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
                     disp.image(image)
                     disp.display()
-                    while back != True:
+                    while back == False:
                         time.sleep(0.2)
-
                     validate=False
+                    back == True
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
