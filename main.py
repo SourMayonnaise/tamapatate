@@ -30,7 +30,7 @@ disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
 mlevel = 0 #main level
 validate = False #enter menu
-
+back = False
 def button1_callback(channel):
     global mlevel
     print("Button 1 was pushed!")
@@ -45,7 +45,7 @@ def button2_callback(channel):
     validate=True
 
 def button3_callback(channel):
-    global mlevel
+    global mlevel, validate, back
     print("Button 3 was pushed!")
     mlevel=0
     validate = False
