@@ -123,14 +123,14 @@ if __name__ == '__main__':
                 if mlevel==1:
                     print("menu 1 : informations")
                     while back == False:
-                    draw.rectangle((0,0,width,height), outline=0, fill=0)
-                    draw.text((2, 2), 'HUNGRY', font=font, fill=255)
-                    draw.text((2, 15), str(tamapatate.miam), font=font, fill=255)
-                    draw.text((2, 28), 'HAPPY', font=font, fill=255)
-                    draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
-                    disp.image(image)
-                    disp.display()
-                    time.sleep(0.2)
+                        draw.rectangle((0,0,width,height), outline=0, fill=0)
+                        draw.text((2, 2), 'HUNGRY', font=font, fill=255)
+                        draw.text((2, 15), str(tamapatate.miam), font=font, fill=255)
+                        draw.text((2, 28), 'HAPPY', font=font, fill=255)
+                        draw.text((2, 41), str(tamapatate.joy), font=font, fill=255)
+                        disp.image(image)
+                        disp.display()
+                        time.sleep(0.2)
                 elif mlevel==2:
                     print("menu 2 : food")
                     tamapatate.manger()
